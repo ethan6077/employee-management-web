@@ -27,10 +27,12 @@ function App() {
   const topTieManagers = employees.filter(m => !m.hasManager());
 
   return (
-    <div className="App">
+    <div>
       <h1>Welcome to Employee Management App</h1>
-      <div className="container">
-        {topTieManagers.map(e => <EmployeeBlock key={e.id} employee={e} />)}
+      <div className="main-content">
+        <ul>
+          {topTieManagers.map(e => <EmployeeBlock key={e.id} employee={e} />)}
+        </ul>
       </div>
     </div>
   );

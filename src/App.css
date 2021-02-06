@@ -1,7 +1,11 @@
-.App h1 {
+h1 {
   text-align: center;
 }
 
-.container {
+.main-content {
   margin: 100px 300px;
+}
+
+ul {
+  list-style-type: none;
 }

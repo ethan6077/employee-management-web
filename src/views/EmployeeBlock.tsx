@@ -21,17 +21,17 @@ const EmployeeBlock: FC<EmployeeBlockProps> = ({ employee }) => {
   };
 
   return (
-    <div
+    <li
       className="employee-block"
       style={{ backgroundColor: getBackGroundColor() }}
     >
-      <span>{" - " + employee.name}</span>
+      <span>{"-- " + employee.name}</span>
       <ul>
         {employee.subordinates.map(sub => (
           <EmployeeBlock key={sub.id} employee={sub} />
         ))}
       </ul>
-    </div>
+    </li>
   );
 };
 
