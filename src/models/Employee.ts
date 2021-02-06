@@ -47,6 +47,10 @@ export default class Employee {
     return !!this._managerId;
   }
 
+  hasSubordinates() {
+    return this._subordinates.length > 0;
+  }
+
   isReportingTo(managerId: number) {
     return this._managerId === managerId;
   }

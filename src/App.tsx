@@ -3,6 +3,8 @@ import data from "./data";
 import Employee from "./models/Employee";
 import EmployeeBlock from "./views/EmployeeBlock";
 
+import "./App.css";
+
 function App() {
   let employees = data.map(
     d => new Employee({ id: d.id, name: d.name, managerId: d.manager_id })
@@ -27,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to Employee Management App</h1>
-      <div>
+      <div className="container">
         {topTieManagers.map(e => <EmployeeBlock key={e.id} employee={e} />)}
       </div>
     </div>
