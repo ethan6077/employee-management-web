@@ -1,39 +1,53 @@
 export default class Employee {
-  id: number;
-  name: string;
-  manager_id: number | null;
+  private _id: number;
+  private _name: string;
+  private _managerId: number | null;
+  private _subordinates: Employee[];
 
   constructor({
     id,
     name,
-    manager_id
+    managerId
   }: {
     id: number;
     name: string;
-    manager_id?: number;
+    managerId: number | null;
   }) {
-    this.id = id;
-    this.name = name;
-    this.manager_id = manager_id || null;
+    this._id = id;
+    this._name = name;
+    this._managerId = managerId;
+    this._subordinates = [];
   }
 
-  getId() {
-    return this.id;
+  get id() {
+    return this._id;
   }
 
-  getName() {
-    return this.name;
+  get name() {
+    return this._name;
   }
 
-  getManagerId() {
-    return this.manager_id;
+  get managerId() {
+    return this._managerId;
+  }
+
+  get subordinates() {
+    return this._subordinates;
+  }
+
+  set subordinate(e: Employee) {
+    if (e.isReportingTo(this._id)) {
+      this._subordinates = [...this._subordinates, e];
+    } else {
+      throw new Error("Failed to set subordinate!");
+    }
   }
 
   hasManager() {
-    return !this.manager_id;
+    return !!this._managerId;
   }
 
   isReportingTo(managerId: number) {
-    return this.manager_id === managerId;
+    return this._managerId === managerId;
   }
 }
