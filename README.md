@@ -9,3 +9,5 @@
 `yarn test`
 
 ## Screenshots
+
+![Alt text](./public/app_screenshot.png?raw=true "App Screenshot")
